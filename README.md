@@ -1,16 +1,24 @@
-# moni_flutter_test
+# Moni Flutter Mobile Engineer Test
 
-A new Flutter project.
+## Main Features
 
-## Getting Started
+1. 2 main screens highlighting agents in a cluster, and the details of the cluster, respectively.
+2. The cluster agents are grouped into their Loan status:
+    - Overdue loans
+    - Loans due in present day
+    - Active loans
+    - Inactive loans
+  
+## Added Features
 
-This project is a starting point for a Flutter application.
+1. An Homepage
+2. Join a cluster
+3. View your profile
+4. A splash screen
 
-A few resources to get you started if this is your first Flutter project:
+## Implementation details
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Feature/module based project structure
+- FutureBuilder to fetch the cluster info 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Learn more at [moni.africa](https://www.moni.africa)
