@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.femisotonwa.moni_flutter_test">
-   <application
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
         android:label="Moni Cluster"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
@@ -31,4 +34,13 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <queries>
+        <!-- If your app opens https URLs -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
 </manifest>

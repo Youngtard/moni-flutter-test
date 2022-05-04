@@ -389,8 +389,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 style:
                     Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xff198155)),
               ),
-              onTap: () {
-                launchUrl(Uri.parse("https://chat.whatsapp.com/BmK1mYu9zGAGhhqi8xqQQ5"));
+              onTap: () async {
+                await launchUrl(Uri(scheme: "https", host: "chat.whatsapp.com", path: "BmK1mYu9zGAGhhqi8xqQQ5"), mode: LaunchMode.externalNonBrowserApplication,);
               },
             ),
             const SizedBox(
