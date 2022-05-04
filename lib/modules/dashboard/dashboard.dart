@@ -23,7 +23,9 @@ class _DashboardState extends State<Dashboard> {
           height: 48,
         ),
         centerTitle: true,
+        backgroundColor: const Color(0xffF8F9FD),
       ),
+      backgroundColor: const Color(0xffF8F9FD),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -44,6 +46,9 @@ class _DashboardState extends State<Dashboard> {
                   InkWell(
                     child: Card(
                       elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
                       child: Center(
                         child: Text(
                           "Cluster",
@@ -58,28 +63,35 @@ class _DashboardState extends State<Dashboard> {
                       setState(() {
                         _selectedCard = 0;
                       });
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const MyCluster()));
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => const MyCluster()));
                     },
                   ),
                   InkWell(
                     child: Card(
                       elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
                       child: Center(
                         child: RichText(
                           text: TextSpan(
                             text: "Join a Cluster\n",
                             children: [
                               TextSpan(
-                                text: "(Not in a cluster yet?)",
+                                text: "(Not in a cluster?)",
                                 style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                  fontSize: 12,
-                                  color: _selectedCard == 1 ? Colors.white : const Color(0xff13163E),
-                                ),
+                                      fontSize: 12,
+                                      color: _selectedCard == 1
+                                          ? Colors.white
+                                          : const Color(0xff13163E),
+                                    ),
                               )
                             ],
                             style: Theme.of(context).textTheme.headline2!.copyWith(
-                              color: _selectedCard == 1 ? Colors.white : const Color(0xff13163E),
-                            ),
+                                  color:
+                                      _selectedCard == 1 ? Colors.white : const Color(0xff13163E),
+                                ),
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -90,7 +102,8 @@ class _DashboardState extends State<Dashboard> {
                       setState(() {
                         _selectedCard = 1;
                       });
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const JoinACluster()));
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => const JoinACluster()));
                     },
                   ),
                 ],

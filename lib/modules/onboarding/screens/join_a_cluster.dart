@@ -32,7 +32,11 @@ class _JoinAClusterState extends State<JoinACluster> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: const BackButton(color: Colors.black,),
+        backgroundColor: const Color(0xffF8F9FD),
+      ),
+      backgroundColor: const Color(0xffF8F9FD),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [

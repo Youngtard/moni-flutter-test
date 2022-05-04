@@ -9,9 +9,10 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xffF8F9FD),
         centerTitle: true,
       ),
+      backgroundColor: const Color(0xffF8F9FD),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
