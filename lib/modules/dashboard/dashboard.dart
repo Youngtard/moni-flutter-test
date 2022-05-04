@@ -64,7 +64,11 @@ class _DashboardState extends State<Dashboard> {
                         _selectedCard = 0;
                       });
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => const MyCluster()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyCluster(),
+                        ),
+                      );
                     },
                   ),
                   InkWell(
@@ -99,11 +103,17 @@ class _DashboardState extends State<Dashboard> {
                       color: _selectedCard == 1 ? Theme.of(context).primaryColor : Colors.white,
                     ),
                     onTap: () {
-                      setState(() {
-                        _selectedCard = 1;
-                      });
+                      setState(
+                        () {
+                          _selectedCard = 1;
+                        },
+                      );
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => const JoinACluster()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const JoinACluster(),
+                        ),
+                      );
                     },
                   ),
                 ],

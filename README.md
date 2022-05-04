@@ -21,4 +21,7 @@
 - Feature/module based project structure
 - FutureBuilder to fetch the cluster info 
 
+## Issue
+- Naira symbol fails to render, "NGN" used inplace.
+
 Learn more at [moni.africa](https://www.moni.africa)

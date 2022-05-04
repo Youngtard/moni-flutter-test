@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:moni_flutter_test/modules/cluster/models/cluster.dart';
 import 'package:moni_flutter_test/utils/utils.dart';
 
@@ -35,6 +36,15 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
     "Saturday",
   ];
 
+  // late Locale locale;
+  // late NumberFormat format;
+
+  @override
+  void initState() {
+    // locale = Localizations.localeOf(context);
+    // format = NumberFormat.simpleCurrency(locale: locale.toString()).currencySymbol;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +129,7 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
               height: 8,
             ),
             Text(
-              "${nairaSymbol.currencySymbol}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
+              "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
               style: Theme.of(context)
                   .textTheme
                   .headline5!
@@ -239,7 +249,9 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
               height: 8,
             ),
             Text(
-              "${nairaSymbol.currencySymbol}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
+              ///Naira symbol not rendering
+              /// "\u{20A6}" "${nairaSymbol.currencySymbol}"
+              "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
               style: Theme.of(context).textTheme.headline5!.copyWith(
                 color: const Color(0xff202325),
                 fontWeight: FontWeight.w500,
@@ -261,7 +273,7 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                       ),
                     ),
                     const SizedBox(
-                      width: 16,
+                      height: 8,
                     ),
                     Text(
                       "Every $_repaymentDay",
@@ -285,7 +297,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                           style: const TextStyle(
                               fontFamily: "Inter",
                               color: Color(0xffE66652),
-                              fontSize: 14),
+                              fontSize: 14,),
+                          textAlign: TextAlign.right,
                         ),
                       ),
                     )
@@ -382,7 +395,7 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             const SizedBox(
               height: 8,
             ),
-            const Text("https://chat.whatsapp.com/BmK1mYu9zGAGhhqi8xqQQ5"),
+            InkWell(child: Text("https://chat.whatsapp.com/BmK1mYu9zGAGhhqi8xqQQ5", style: Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xff198155)),)),
             const SizedBox(
               height: 16,
             ),
@@ -437,7 +450,7 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
               height: 8,
             ),
             Text(
-              "${nairaSymbol.currencySymbol}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
+              "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
               style: Theme.of(context)
                   .textTheme
                   .headline5!
@@ -459,7 +472,7 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${nairaSymbol.currencySymbol}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
+                  "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
                   style: Theme.of(context)
                       .textTheme
                       .headline5!

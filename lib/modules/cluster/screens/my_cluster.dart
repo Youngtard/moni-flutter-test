@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moni_flutter_test/modules/cluster/models/cluster.dart';
@@ -19,17 +16,11 @@ class MyCluster extends StatefulWidget {
 class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  bool _overdueLoansExpanded = true;
-  bool _dueLoansExpanded = true;
-  bool _activeLoansExpanded = true;
-  bool _inactiveLoansExpanded = true;
-
-  Future<Cluster> _fetchClusterAgents = ClusterRepositoryImpl().fetchClusterAgents(path: "loans");
+  final Future<Cluster> _fetchClusterAgents = ClusterRepositoryImpl().fetchClusterAgents(path: "loans");
 
   @override
   void initState() {
     super.initState();
-    // _fetchClusterAgents();
     _tabController = TabController(initialIndex: 0, length: 2, vsync: this);
   }
 
@@ -206,7 +197,7 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
                                         ),
                                         Container(
                                           padding:
-                                              EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                                              const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(6),
                                             color: const Color(0xffE66652),
