@@ -15,6 +15,7 @@
 2. Join a cluster
 3. View your profile
 4. A splash screen
+5. An app icon
 
 ## Implementation details
 
