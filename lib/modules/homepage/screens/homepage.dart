@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moni_flutter_test/modules/dashboard/dashboard.dart';
+import 'package:moni_flutter_test/modules/profile/screens/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _bottomBarWidgets = [
     const Dashboard(),
-    Container(),
+    const Profile(),
   ];
 
   @override

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moni_flutter_test/modules/cluster/screens/my_cluster.dart';
+import 'package:moni_flutter_test/modules/onboarding/screens/join_a_cluster.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Femi Sotonwa",
+                "Dashboard",
                 style: Theme.of(context).textTheme.headline1,
               ),
               const SizedBox(
@@ -89,6 +90,7 @@ class _DashboardState extends State<Dashboard> {
                       setState(() {
                         _selectedCard = 1;
                       });
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const JoinACluster()));
                     },
                   ),
                 ],

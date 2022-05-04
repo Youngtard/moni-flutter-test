@@ -17,7 +17,8 @@ class AppTheme {
     ),
     headline3: TextStyle(
         fontSize: 18,
-        fontWeight: FontWeight.w700
+        fontWeight: FontWeight.w700,
+      color: _textColor,
     ),
     headline4: TextStyle(
       fontSize: 16,
