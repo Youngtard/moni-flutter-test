@@ -50,18 +50,11 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
           builder: (BuildContext context, AsyncSnapshot<Cluster> snapshot) {
             if (snapshot.hasData) {
               return NestedScrollView(
-                // physics: const NeverScrollableScrollPhysics(),
                 headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                   return <Widget>[
                     SliverAppBar(
-                      // primary: true,
                       automaticallyImplyLeading: false,
                       pinned: false,
-                      // stretch: true,
-                      // snap: true,
-                      // floating: true,
-                      // collapsedHeight: 75,
-                      // toolbarHeight: 75,
                       expandedHeight: 275,
                       flexibleSpace: Stack(
                         children: [
@@ -177,7 +170,7 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
                                               height: 4,
                                             ),
                                             Text(
-                                              "${nairaSymbol.currencySymbol}${currencyFormat.format(snapshot.data!.clusterPurseBalance)}",
+                                              "${nairaSymbol.currencyName}${currencyFormat.format(snapshot.data!.clusterPurseBalance)}",
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headline4!
@@ -187,7 +180,7 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
                                               height: 4,
                                             ),
                                             Text(
-                                              "+₦${currencyFormat.format(snapshot.data!.totalInterestEarned)} interest today",
+                                              "+${nairaSymbol.currencyName}${currencyFormat.format(snapshot.data!.totalInterestEarned)} interest today",
                                               style:
                                                   Theme.of(context).textTheme.bodyText2!.copyWith(
                                                         color: const Color(0xff7DDE86),
@@ -232,7 +225,7 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
                                               ),
                                         ),
                                         Text(
-                                          "₦${currencyFormat.format(snapshot.data!.totalInterestEarned)}",
+                                          "${nairaSymbol.currencyName}${currencyFormat.format(snapshot.data!.totalInterestEarned)}",
                                           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                                 color: const Color(0xffF0CC79),
                                               ),
@@ -259,7 +252,7 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
                                               ),
                                         ),
                                         Text(
-                                          "₦${currencyFormat.format(snapshot.data!.totalOwedByMembers)}",
+                                          "${nairaSymbol.currencyName}${currencyFormat.format(snapshot.data!.totalOwedByMembers)}",
                                           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                                 color: Colors.white,
                                               ),
@@ -271,7 +264,6 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
                               ),
                             ),
                           ),
-                          // AppBar()
                         ],
                       ),
                     ),
@@ -319,7 +311,7 @@ class _MyClusterState extends State<MyCluster> with SingleTickerProviderStateMix
             } else if (snapshot.hasError) {
               return Center(
                 child: Text(
-                  "An error occured",
+                  "An error occurred",
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16),
                 ),
               );

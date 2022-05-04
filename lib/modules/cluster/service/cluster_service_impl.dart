@@ -30,7 +30,7 @@ class ClusterServiceImpl extends ClusterService {
       } else {
         throw NetworkException(message: responseBody["message"]);
       }
-    } catch (error, stack) {
+    } catch (error) {
       if (error is Exception) {
         if (error is SocketException) {
           throw NetworkFailure("Unable to connect, please try again.", 0);
@@ -40,8 +40,6 @@ class ClusterServiceImpl extends ClusterService {
           throw NetworkFailure(error.toString(), 0);
         }
       } else {
-        print(error.toString());
-        print(stack);
         throw NetworkFailure(error.toString(), 0);
       }
     }

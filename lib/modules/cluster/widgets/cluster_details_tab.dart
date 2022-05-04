@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
 import 'package:moni_flutter_test/modules/cluster/models/cluster.dart';
 import 'package:moni_flutter_test/utils/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ClusterDetailsTab extends StatefulWidget {
   const ClusterDetailsTab({Key? key, required this.cluster}) : super(key: key);
 
   final Cluster cluster;
 
-
   @override
   State<ClusterDetailsTab> createState() => _ClusterDetailsTabState();
 }
 
 class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
-
   String _contributionFrequency = "Monthly";
   final List<String> _contributionFrequencies = [
     "Daily",
@@ -63,8 +61,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 Text(
                   "Cluster purse setting",
                   style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: const Color(0xff202325),
-                  ),
+                        color: const Color(0xff202325),
+                      ),
                 ),
               ],
             ),
@@ -80,8 +78,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     Text(
                       "Frequency of contribution",
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: const Color(0xff303437),
-                      ),
+                            color: const Color(0xff303437),
+                          ),
                     ),
                     const SizedBox(
                       width: 16,
@@ -89,9 +87,9 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     Text(
                       "$_contributionFrequency upfront",
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: const Color(0xff202325),
-                        fontSize: 16,
-                      ),
+                            color: const Color(0xff202325),
+                            fontSize: 16,
+                          ),
                     )
                   ],
                 ),
@@ -102,21 +100,21 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     items: _contributionFrequencies
                         .map(
                           (String value) => DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: const TextStyle(
-                            fontFamily: "Inter",
-                            color: Color(0xffE66652),
-                            fontSize: 14,
+                            value: value,
+                            child: Text(
+                              value,
+                              style: const TextStyle(
+                                fontFamily: "Inter",
+                                color: Color(0xffE66652),
+                                fontSize: 14,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    )
+                        )
                         .toList(),
                     onChanged: (String? newValue) {
                       setState(
-                            () {
+                        () {
                           _contributionFrequency = newValue!;
                         },
                       );
@@ -130,20 +128,16 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             ),
             Text(
               "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline5!
-                  .copyWith(color: const Color(0xff202325)),
+              style:
+                  Theme.of(context).textTheme.headline5!.copyWith(color: const Color(0xff202325)),
             ),
             const SizedBox(
               height: 8,
             ),
             Text(
               "Your contribution is 8% of your eligible amount",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: const Color(0xff979C9E)),
+              style:
+                  Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xff979C9E)),
             ),
             const Divider(
               color: Color(0xffE3E5E5),
@@ -159,8 +153,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 Text(
                   "Group invite Link/Code",
                   style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: const Color(0xff202325),
-                  ),
+                        color: const Color(0xff202325),
+                      ),
                 )
               ],
             ),
@@ -170,8 +164,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             Text(
               "Use the link or code below to invite new members",
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                color: const Color(0xff202325),
-              ),
+                    color: const Color(0xff202325),
+                  ),
             ),
             const SizedBox(
               height: 8,
@@ -185,8 +179,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     Text(
                       "Member invite code",
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: const Color(0xff303437),
-                      ),
+                            color: const Color(0xff303437),
+                          ),
                     ),
                     const SizedBox(
                       width: 16,
@@ -194,9 +188,9 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     Text(
                       _memberInviteCode,
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                        color: const Color(0xff202325),
-                        fontSize: 16,
-                      ),
+                            color: const Color(0xff202325),
+                            fontSize: 16,
+                          ),
                     )
                   ],
                 ),
@@ -208,10 +202,7 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                   },
                   child: const Text(
                     "Get new code",
-                    style: TextStyle(
-                        fontFamily: "Inter",
-                        color: Color(0xffE66652),
-                        fontSize: 14),
+                    style: TextStyle(fontFamily: "Inter", color: Color(0xffE66652), fontSize: 14),
                   ),
                 )
               ],
@@ -230,8 +221,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 Text(
                   "Loan setting",
                   style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: const Color(0xff202325),
-                  ),
+                        color: const Color(0xff202325),
+                      ),
                 )
               ],
             ),
@@ -240,10 +231,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             ),
             Text(
               "Total loan collected by cluster",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText2!
-                  .copyWith(color: const Color(0xff404446)),
+              style:
+                  Theme.of(context).textTheme.bodyText2!.copyWith(color: const Color(0xff404446)),
             ),
             const SizedBox(
               height: 8,
@@ -253,9 +242,9 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
               /// "\u{20A6}" "${nairaSymbol.currencySymbol}"
               "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
               style: Theme.of(context).textTheme.headline5!.copyWith(
-                color: const Color(0xff202325),
-                fontWeight: FontWeight.w500,
-              ),
+                    color: const Color(0xff202325),
+                    fontWeight: FontWeight.w500,
+                  ),
             ),
             const SizedBox(
               height: 16,
@@ -269,8 +258,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     Text(
                       "Repayment Day",
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                        color: const Color(0xff404446),
-                      ),
+                            color: const Color(0xff404446),
+                          ),
                     ),
                     const SizedBox(
                       height: 8,
@@ -278,9 +267,9 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     Text(
                       "Every $_repaymentDay",
                       style: Theme.of(context).textTheme.headline5!.copyWith(
-                        color: const Color(0xff202325),
-                        fontWeight: FontWeight.w500,
-                      ),
+                            color: const Color(0xff202325),
+                            fontWeight: FontWeight.w500,
+                          ),
                     )
                   ],
                 ),
@@ -291,21 +280,22 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                     items: _repaymentDays
                         .map(
                           (String value) => DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(
-                          value,
-                          style: const TextStyle(
-                              fontFamily: "Inter",
-                              color: Color(0xffE66652),
-                              fontSize: 14,),
-                          textAlign: TextAlign.right,
-                        ),
-                      ),
-                    )
+                            value: value,
+                            child: Text(
+                              value,
+                              style: const TextStyle(
+                                fontFamily: "Inter",
+                                color: Color(0xffE66652),
+                                fontSize: 14,
+                              ),
+                              textAlign: TextAlign.right,
+                            ),
+                          ),
+                        )
                         .toList(),
                     onChanged: (String? newValue) {
                       setState(
-                            () {
+                        () {
                           _repaymentDay = newValue!;
                         },
                       );
@@ -328,8 +318,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 Text(
                   "Pending Join Request",
                   style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: const Color(0xff202325),
-                  ),
+                        color: const Color(0xff202325),
+                      ),
                 )
               ],
             ),
@@ -338,10 +328,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             ),
             Text(
               "No pending cluster join request",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: const Color(0xff72777A)),
+              style:
+                  Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xff72777A)),
             ),
             const Divider(
               color: Color(0xffE3E5E5),
@@ -357,8 +345,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 Text(
                   "Group Settings",
                   style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: const Color(0xff202325),
-                  ),
+                        color: const Color(0xff202325),
+                      ),
                 )
               ],
             ),
@@ -368,8 +356,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             Text(
               "Group rules",
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                color: const Color(0xff202325),
-              ),
+                    color: const Color(0xff202325),
+                  ),
             ),
             const SizedBox(
               height: 8,
@@ -379,8 +367,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
               child: Text(
                 "1. Check the car’s rental terms as well, because each company has its own rules.\n2. Check the car’s rental terms as well, because each company has its own rules.",
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                  color: const Color(0xff202325),
-                ),
+                      color: const Color(0xff202325),
+                    ),
               ),
             ),
             const SizedBox(
@@ -389,13 +377,22 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             Text(
               "Group WhatsApp",
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                color: const Color(0xff202325),
-              ),
+                    color: const Color(0xff202325),
+                  ),
             ),
             const SizedBox(
               height: 8,
             ),
-            InkWell(child: Text("https://chat.whatsapp.com/BmK1mYu9zGAGhhqi8xqQQ5", style: Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xff198155)),)),
+            InkWell(
+              child: Text(
+                "https://chat.whatsapp.com/BmK1mYu9zGAGhhqi8xqQQ5",
+                style:
+                    Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xff198155)),
+              ),
+              onTap: () {
+                launchUrl(Uri.parse("https://chat.whatsapp.com/BmK1mYu9zGAGhhqi8xqQQ5"));
+              },
+            ),
             const SizedBox(
               height: 16,
             ),
@@ -412,8 +409,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                   Text(
                     "Edit Settings",
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                      color: const Color(0xffE66652),
-                    ),
+                          color: const Color(0xffE66652),
+                        ),
                   )
                 ],
               ),
@@ -432,8 +429,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                 Text(
                   "Benefits earned",
                   style: Theme.of(context).textTheme.headline5!.copyWith(
-                    color: const Color(0xff202325),
-                  ),
+                        color: const Color(0xff202325),
+                      ),
                 )
               ],
             ),
@@ -443,18 +440,16 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             Text(
               "Total CH benefits earned",
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                color: const Color(0xff202325),
-              ),
+                    color: const Color(0xff202325),
+                  ),
             ),
             const SizedBox(
               height: 8,
             ),
             Text(
               "${nairaSymbol.currencyName}${currencyFormat.format(widget.cluster.clusterPurseBalance)}",
-              style: Theme.of(context)
-                  .textTheme
-                  .headline5!
-                  .copyWith(color: const Color(0xff202325)),
+              style:
+                  Theme.of(context).textTheme.headline5!.copyWith(color: const Color(0xff202325)),
             ),
             const SizedBox(
               height: 16,
@@ -462,8 +457,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
             Text(
               "Available Benefits",
               style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                color: const Color(0xff202325),
-              ),
+                    color: const Color(0xff202325),
+                  ),
             ),
             const SizedBox(
               height: 8,
@@ -504,8 +499,8 @@ class _ClusterDetailsTabState extends State<ClusterDetailsTab> {
                   Text(
                     "View earning history",
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                      color: const Color(0xffE66652),
-                    ),
+                          color: const Color(0xffE66652),
+                        ),
                   )
                 ],
               ),
